@@ -28,6 +28,9 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
+fpath=(~/.zsh/functions $fpath)
+autoload -U ~/.zsh/functions/*(:t)
+
 #. ~/.zsh/config
 . ~/.zsh/aliases
 . ~/.zsh/completion
