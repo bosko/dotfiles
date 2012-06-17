@@ -42,4 +42,3 @@ autoload -U ~/.zsh/functions/*(:t)
 fpath=(~/.zsh/Completion $fpath)
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-unsetopt correct_all
