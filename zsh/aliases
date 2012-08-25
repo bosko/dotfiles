@@ -1,3 +1,6 @@
+# emacs
+alias enw='emacs -nw'
+
 # cd
 alias ..='cd ..'
 
