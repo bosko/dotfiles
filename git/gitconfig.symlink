@@ -1,33 +1,23 @@
-# Sample gitconfig
-#
-# You probably want to change the [user] section here since you are not me.
-
-[hub]
-        protocol = https
 [user]
-        name = Jesse Wolgamott
-        email = jesse@comalproductions.com
-[credential]
-        helper = osxkeychain
-[alias]
-        co = checkout
-        promote = !$ZSH/bin/git-promote
-        wtf     = !$ZSH/bin/git-wtf
-        rank-contributers = !$ZSH/bin/git-rank-contributers
-        count   = !git shortlog -sn
+	name = Bosko Ivanisevic
+	email = bosko.ivanisevic@gmail.com
+[github]
+	user = bosko
+	token = 
 [color]
-        diff = auto
-        status = auto
-        branch = auto
-        ui = true
-[core]
-        excludesfile = ~/.gitignore
-        editor = vim
-[apply]
-        whitespace = nowarn
-[mergetool]
-        keepBackup = false
-[difftool]
-        prompt = false
-[help]
-        autocorrect = 1
+	ui = auto
+[merge]
+	tool = kdiff3
+[gui]
+	fontdiff = -family \"DejaVu Sans Mono\" -size 9 -weight normal -slant roman -underline 0 -overstrike 0
+	recentrepo = /home/bosko/.oh-my-zsh
+[format]
+	#pretty = %C(yellow)%h%Creset %s %C(red)(%an, %cr)%Creset
+[alias]
+  # Pretty!
+  # via http://andyjeffries.co.uk/articles/25-tips-for-intermediate-git-users
+  lol = log --pretty=oneline --abbrev-commit --graph --decorate
+  # From http://github.com/gabebw/dotfiles/blob/master/gitconfig.erb
+  today = log --stat --since='1 Day Ago' --graph --pretty=oneline --abbrev-commit --date=relative
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %C(bold green)(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+
