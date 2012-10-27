@@ -8,9 +8,6 @@
 	ui = auto
 [merge]
 	tool = kdiff3
-[gui]
-	fontdiff = -family \"DejaVu Sans Mono\" -size 9 -weight normal -slant roman -underline 0 -overstrike 0
-	recentrepo = /home/bosko/.oh-my-zsh
 [format]
 	#pretty = %C(yellow)%h%Creset %s %C(red)(%an, %cr)%Creset
 [alias]
