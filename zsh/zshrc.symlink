@@ -21,3 +21,6 @@ compinit
 # load every completion after autocomplete loads
 for config_file ($ZSH/**/completion.zsh) source $config_file
 
+# Use recommended way to install git completion script in ZSH
+# (as commented in git/_git file)
+fpath=($ZSH/git $fpath)
