@@ -10,11 +10,4 @@
 	tool = kdiff3
 [format]
 	#pretty = %C(yellow)%h%Creset %s %C(red)(%an, %cr)%Creset
-[alias]
-  # Pretty!
-  # via http://andyjeffries.co.uk/articles/25-tips-for-intermediate-git-users
-  lol = log --pretty=oneline --abbrev-commit --graph --decorate
-  # From http://github.com/gabebw/dotfiles/blob/master/gitconfig.erb
-  today = log --stat --since='1 Day Ago' --graph --pretty=oneline --abbrev-commit --date=relative
-  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %C(bold green)(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 
