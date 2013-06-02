@@ -22,10 +22,7 @@ complete ()
 }
 
 zstyle -s ":completion:*:*:git:*" script script
-#test -z "$script" && script="$(dirname ${funcsourcetrace[1]%:*})"/git-completion.bash
-# Script looks for git-completion.bash script in the same directory. Instead of that
-# let's use directory where Homebrew install this script.
-test -z "$script" && script=/usr/local/etc/bash_completion.d/git-completion.bash
+test -z "$script" && script="$(dirname ${funcsourcetrace[1]%:*})"/git-completion.bash
 ZSH_VERSION='' . "$script"
 
 __gitcomp ()
@@ -61,6 +58,15 @@ __gitcomp_nl ()
 	local IFS=$'\n'
 	compset -P '*[=:]'
 	compadd -Q -S "${4- }" -p "${2-}" -- ${=1} && _ret=0
+}
+
+__gitcomp_file ()
+{
+	emulate -L zsh
+
+	local IFS=$'\n'
+	compset -P '*[=:]'
+	compadd -Q -p "${2-}" -f -- ${=1} && _ret=0
 }
 
 _git ()
