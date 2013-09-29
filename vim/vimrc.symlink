@@ -1,177 +1,216 @@
-" --------------------------------------
-" jwo stuff
-" --------------------------------------
+" Vundle Settings
+set nocompatible
+filetype off
 
-call pathogen#infect() 
-syntax on
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+"""""""""""
+" Bundles "
+"""""""""""
+Bundle "gmarik/vundle"
+Bundle "tpope/vim-rails"
+Bundle "tpope/vim-cucumber"
+Bundle "tpope/vim-fugitive"
+Bundle "tpope/vim-surround"
+Bundle "tpope/vim-endwise"
+Bundle "tpope/vim-repeat"
+Bundle "Lokaltog/vim-powerline"
+Bundle "Lokaltog/vim-easymotion"
+Bundle "vlasar/snipmate"
+Bundle "vlasar/snipmate-snippets"
+Bundle "thisivan/vim-bufexplorer"
+Bundle "gregsexton/MatchTag"
+Bundle "altercation/vim-colors-solarized"
+Bundle "kchmck/vim-coffee-script"
+Bundle "airblade/vim-gitgutter"
+Bundle "kien/ctrlp.vim"
+Bundle "elixir-lang/vim-elixir"
+
 filetype plugin indent on
+
+runtime! bundle/snipmate-snippets/support_functions.vim
+
+autocmd BufWritePre * :%s/\s\+$//e
+
+set title
+set hidden
+
+" Numbers
+set number
+set numberwidth=4
+set ruler
+
+exe "set path=".expand("$PATH")
+
+syntax enable
+
+set nomodeline
+set backspace=indent,eol,start                          " Backspace will delete EOL chars, as well as indents
+set matchpairs+=<:>                                     " For characters that forms pairs for using % commands, this is for HTML Tags
+set shortmess=atToOI                                    " To avoid the 'Hit Enter' prompts caused by the file messages
+set iskeyword+=_,$,@,%,#                                " Keywords are use to searching and recognized with many commands
+set history=1000
+set undolevels=1000
+set confirm
+set updatetime=1500
+
+" Encoding "
+set encoding=utf-8
+set termencoding=utf-8
+
+" Instantly leave insert mode when pressing <ESC>"
+" This works by disabling the mapping timeout completely in normal
+" mode, and enabling it in insert mode with a very low timeout length.
+augroup fastescape
+	autocmd!
+
+	set notimeout
+	set ttimeout
+	set timeoutlen=10
+
+	au InsertEnter * set timeout
+	au InsertLeave * set notimeout
+augroup END
+
+
+" Define , as map leader"
+let mapleader = ' '
+let g:mapleader = ' '
+
+" Disable all bells"
+set noerrorbells visualbell t_vb=
+
+" Wild menu (Autocompletion)"
+set wildmenu
+set wildignore=.svn,CVS,.git,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.jpeg,*.png,*.xpm,*.gif
+set wildmode=full
+
+" Backup and Swap"
+set nobackup
+set nowritebackup
 set noswapfile
-colors Tomorrow-night
-set bg=dark
 
-map ,t :w\|:!rspec --color %<cr>
-map ,r :w\|:!ruby %<cr>
-map ,a :w\|:!cucumber --color %<cr>
+" Search Options"
+set hlsearch   " Highlight search
+set incsearch  " Incremental search
+set magic      " Set magic on, for regular expressions
+set ignorecase " Searches are Non Case-sensitive
+set smartcase
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" RUNNING TESTS
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <leader>r :call RunTestFile()<cr>
-map <leader>T :call RunNearestTest()<cr>
-map <leader>a :call RunTests('')<cr>
-map <leader>c :w\|:!script/features<cr>
-map <leader>w :w\|:!script/features --profile wip<cr>
+" FOLDING
+set foldenable
+set foldmethod=marker
+set foldlevel=0
+set foldcolumn=0
+
+" Ack vim
+let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+
+" Look and Feel settings
+set background=light
+set t_Co=256
+colorscheme solarized
+
+" Display extra whitespace
+" set list listchars=tab:»·,trail:·
+
+" General UI Options"
+set laststatus=2       " Always show the statusline
+
+set showmatch          " Shows matching brackets when text indicator is over them
+set scrolloff=5        " Show 5 lines of context around the cursor
+set sidescrolloff=20
+set lazyredraw         " The screen won't be redrawn unless actions took place
+set cursorline
+set scrolljump=10
+set showcmd
+set ttyfast            " Improves redrawing for newer computers
+set pumheight=10
+set diffopt+=context:3
+set nostartofline      " when moving thru the lines, the cursor will try to stay in the previous columns
+
+" LAYOUT / TEXT FORMATTING
+" Formatting Options
+set wrap	" Soft Wrap in all files, while hard wrap can be allow by filetype
+set linebreak " It maintains the whole words when wrapping
+
+" Indentation"
+set autoindent
+set cindent
+set smartindent
+
+" Tab Options"
+set shiftwidth=2
+set tabstop=2
+set expandtab
+
+" MAPPINGS
+
+" General
+	" Clear search highlighting
+  nnoremap <silent><leader>c :nohlsearch<CR>
+
+  " Start BufExplorer
+  nnoremap <silent><leader>l :BufExplorer<CR>
+  nnoremap <silent><leader>s :A<CR>
+  nnoremap <silent><leader>v :AV<CR>
+  nnoremap <silent><leader>\ :vs<CR>
+  nnoremap <silent><leader>- :split<CR>
+  nnoremap <silent><leader>1 :e ~/.vimrc<CR>
+
+  nnoremap <silent><leader>r :!rspec %<CR>
+  nnoremap <silent><leader>w :wa<CR>
+  nnoremap <C-J> <C-W><C-J>
+  nnoremap <C-K> <C-W><C-K>
+  nnoremap <C-L> <C-W><C-L>
+  nnoremap <C-H> <C-W><C-H>
+  command W w
+  command Q q
+  command Wq wq
 
 
-function! RunTestFile(...)
-    if a:0
-        let command_suffix = a:1
+  " Paste
+  let paste_mode = 0 " 0 = normal, 1 = paste
+
+  func! Paste_on_off()
+    if g:paste_mode == 0
+      set paste
+      let g:paste_mode = 1
     else
-        let command_suffix = ""
+      set nopaste
+      let g:paste_mode = 0
     endif
+    return
+  endfunc
 
-    " Run the tests for the previously-marked file.
-    let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\)$') != -1
-    if in_test_file
-        call SetTestFile()
-    elseif !exists("t:grb_test_file")
-        return
-    end
-    call RunTests(t:grb_test_file . command_suffix)
-endfunction
+  " Paste Mode <F3>
+  nnoremap <silent> <F3> :call Paste_on_off()<CR>
+  set pastetoggle=<F3>
 
-function! RunNearestTest()
-    let spec_line_number = line('.')
-    call RunTestFile(":" . spec_line_number . " -b")
-endfunction
+	" Repurpose left and right arrow keys to move between the buffers
+	nnoremap <silent> <Down>   :bn<CR>
+	nnoremap <silent> <Up>  :bp<CR>
 
-function! SetTestFile()
-    " Set the spec file that tests will be run for.
-    let t:grb_test_file=@%
-endfunction
+	" Indent visual selected code without unselecting
+	" As seen in vimcasts.org
+	vmap > >gv
+	vmap < <gv
+	vmap = =gv
 
-function! RunTests(filename)
-    " Write the file and run tests for the given filename
-    :w
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-    if match(a:filename, '\.feature$') != -1
-        exec ":!script/features " . a:filename
-    else
-        if filereadable("script/test")
-            exec ":!script/test " . a:filename
-        elseif filereadable("Gemfile")
-            exec ":!bundle exec rspec --color " . a:filename
-        else
-            exec ":!rspec --color " . a:filename
-        end
-    end
-endfunction
+" GO
 
-function! ReverseBackground()
- if &bg == "light"
-   se bg=dark
-   color Tomorrow-night
- else
-   se bg=light
-   color Tomorrow
- endif
-endfunction
-command! Invbg call ReverseBackground()
-" ----------------------------------------------------------------------------
-"  Text Formatting
-" ----------------------------------------------------------------------------
+au BufRead,BufNewFile *.go set filetype=go
 
-set autoindent             " automatic indent new lines
-set smartindent            " be smart about it
-inoremap # X<BS>#
-set nowrap                 " do not wrap lines
-set softtabstop=2          " yep, two
-set shiftwidth=2           " ..
-set tabstop=4
-set expandtab              " expand tabs to spaces
-set nosmarttab             " fuck tabs
-set formatoptions+=n       " support for numbered/bullet lists
-set textwidth=80           " wrap at 80 chars by default
-set virtualedit=block      " allow virtual edit in visual block ..
+" 3RD-PARTY PLUGINS SETTINGS
 
-" ----------------------------------------------------------------------------
-"  Remapping
-" ----------------------------------------------------------------------------
+  " Buffer Explorer
+  let g:bufExplorerDefaultHelp=0       " Do not show default help.
+  let g:bufExplorerShowRelativePath=1  " Show relative paths.
 
-" lead with ,
-let mapleader = ","
+  set wildignore+=vendor/**
 
-" exit to normal mode with 'jj'
-inoremap jj <ESC>
+  " Vim Git Gutter
+  highlight SignColumn ctermbg=none
+  let g:gitgutter_signs = 1         " Activate gutter signs
 
-
-" reflow paragraph with Q in normal and visual mode
-nnoremap Q gqap
-vnoremap Q gq
-
-" sane movement with wrap turned on
-nnoremap j gj
-nnoremap k gk
-vnoremap j gj
-vnoremap k gk
-nnoremap <Down> gj
-nnoremap <Up> gk
-vnoremap <Down> gj
-vnoremap <Up> gk
-inoremap <Down> <C-o>gj
-inoremap <Up> <C-o>gk
-
-" ----------------------------------------------------------------------------
-"  UI
-" ----------------------------------------------------------------------------
-
-set ruler                  " show the cursor position all the time
-set noshowcmd              " don't display incomplete commands
-set nolazyredraw           " turn off lazy redraw
-set number                 " line numbers
-set wildmenu               " turn on wild menu
-set wildmode=list:longest,full
-set ch=2                   " command line height
-set backspace=2            " allow backspacing over everything in insert mode
-set whichwrap+=<,>,h,l,[,] " backspace and cursor keys wrap to
-set shortmess=filtIoOA     " shorten messages
-set report=0               " tell us about changes
-set nostartofline          " don't jump to the start of line when scrolling
-
-
-" ----------------------------------------------------------------------------
-" Visual Cues
-" ----------------------------------------------------------------------------
-
-set showmatch              " brackets/braces that is
-set mat=5                  " duration to show matching brace (1/10 sec)
-set incsearch              " do incremental searching
-set laststatus=2           " always show the status line
-set ignorecase             " ignore case when searching
-set nohlsearch             " don't highlight searches
-set visualbell             " shut the fuck up
-
-
-" ---------------------------------------------------------------------------
-"  Strip all trailing whitespace in file
-" ---------------------------------------------------------------------------
-
-function! StripWhitespace ()
-    exec ':%s/ \+$//gc'
-endfunction
-map ,s :call StripWhitespace ()<CR>
-
-" Status Line
-" ===========
-
-set statusline=                                 " Override default
-set statusline+=%{fugitive#statusline()[4:-2]}  " Show fugitive git info
-set statusline+=\ %f\ %m\ %r                    " Show filename/path
-set statusline+=%=                              " Set right-side status info after this line
-set statusline+=%l/%L:%v                        " Set <line number>/<total lines>:<column>
-set statusline+=\                               " Set ending space
