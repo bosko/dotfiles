@@ -1,7 +1,7 @@
 alias reload!='. ~/.zshrc'
 alias hidden-up='defaults write com.apple.Finder AppleShowAllFiles YES'
 alias hidden-down='defaults write com.apple.Finder AppleShowAllFiles NO'
-alias tags-create='ctags -e -R --exclude=db --exclude=log --exclude=tmp --exclude=test --exclude=.git --exclude=public --exclude=vendor'
+alias tags-create='ctags -a -e -f TAGS --tag-relative --exclude=vendor/bundle --exclude=.git --exclude=tmp --exclude=log --exclude=db -R app lib vendor test spec'
 alias biq-production='ssh -t biq_production "cd /home/brownbag/brownbag; /bin/bash -i"'
 alias biq-staging='ssh -t biq_staging "cd /home/brownbag/brownbag; /bin/bash -i"'
 alias biq-development='ssh -t biq_development "cd /home/brownbag/brownbag; /bin/bash -i"'

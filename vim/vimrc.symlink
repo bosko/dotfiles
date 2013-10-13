@@ -110,6 +110,11 @@ let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 " Look and Feel settings
 set background=light
 set t_Co=256
+if has('gui_running')
+    set background=light
+else
+    set background=dark
+endif
 colorscheme solarized
 
 " Display extra whitespace
