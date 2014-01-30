@@ -7,4 +7,5 @@ alias biq-staging='ssh -t biq_staging "cd /home/brownbag/brownbag; /bin/bash -i"
 alias biq-development='ssh -t biq_development "cd /home/brownbag/brownbag; /bin/bash -i"'
 alias biq-demo='ssh -t brownbag@biq-demo.cloudapp.net -p 28820 "cd /home/brownbag/brownbag; /bin/bash -i"'
 alias lj-staging='ssh -t lj_staging "cd /var/www/ladyjanes; /bin/bash -i"'
+alias lj-production='ssh -t lj_production "cd /var/www/ladyjanes; /bin/bash -i"'
 
