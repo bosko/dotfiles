@@ -25,3 +25,6 @@ for config_file ($ZSH/**/completion.zsh) source $config_file
 # (as commented in git/_git file)
 fpath=($ZSH/git $fpath)
 export SSL_CERT_FILE="/usr/local/etc/openssl/certs/cert.pem"
+
+# Improve Emacs colors when running inside terminal
+export TERM=xterm-256color
