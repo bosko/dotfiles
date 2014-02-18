@@ -8,8 +8,7 @@ alias biq-development='ssh -t biq_development "cd /home/brownbag/brownbag; /bin/
 alias biq-demo='ssh -t brownbag@biq-demo.cloudapp.net -p 28820 "cd /home/brownbag/brownbag; /bin/bash -i"'
 alias lj-staging='ssh -t lj_staging "cd /var/www/ladyjanes; /bin/bash -i"'
 alias lj-production='ssh -t lj_production "cd /var/www/ladyjanes; /bin/bash -i"'
-alias emacs-up='emacs --daemon'
-alias emacs-down='emacsclient -e "(kill-emacs)"'
-alias ew='emacsclient -c $@'
-alias et='emacsclient -t $@'
-
+alias em-up='emacs --daemon'
+alias em-down='emacsclient -e "(kill-emacs)"'
+alias emw='emacsclient -c $@'
+alias emt='emacsclient -t $@'
