@@ -1,7 +1,7 @@
 alias reload!='. ~/.zshrc'
 alias hidden-up='defaults write com.apple.finder AppleShowAllFiles -boolean true && killall Finder'
 alias hidden-down='defaults delete com.apple.finder AppleShowAllFiles && killall Finder'
-alias tags-create='ctags -a -e -f TAGS --tag-relative --exclude=vendor/bundle --exclude=.git --exclude=tmp --exclude=log --exclude=db -R app lib vendor test spec'
+alias tags-create='ctags -a -e -f TAGS --tag-relative --exclude=vendor/bundle --exclude=.git --exclude=tmp --exclude=log --exclude=db --exclude=app/bower_components --exclude=node_modules --exclude=.tmp --exclude=.sass-cache --exclude=dist -R app lib vendor test spec'
 alias ruby-tags-create='ripper-tags -R -f TAGS --exclude .git --exclude log --exclude tmp'
 alias biq-production='ssh -t biq_production "cd /home/brownbag/brownbag; /bin/bash -i"'
 alias biq-staging='ssh -t biq_staging "cd /home/brownbag/brownbag; /bin/bash -i"'
