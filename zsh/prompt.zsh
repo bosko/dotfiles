@@ -41,12 +41,12 @@ need_push () {
 }
 
 rb_prompt(){
-  # if $(which rbenv &> /dev/null)
-  # then
-  #   echo "%{$fg_bold[yellow]%}$(rbenv version | awk '{print $1}')%{$reset_color%}"
-  # else
-  #   echo ""
-  # fi
+  if $(which ruby &> /dev/null)
+  then
+    echo "%{$fg_bold[yellow]%}$(ruby -v | awk '{print $2}')%{$reset_color%}"
+  else
+    echo ""
+  fi
 }
 
 # This keeps the number of todos always available the right hand side of my
