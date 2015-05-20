@@ -1,0 +1,27 @@
+unbind C-b
+set-option -g prefix `
+bind-key ` send-prefix
+
+# Status bar
+# colors
+set -g status-bg black
+set -g status-fg white
+
+# alignment
+set-option -g status-justify centre
+
+# spot at left
+set-option -g status-left '#[bg=black,fg=green][#[fg=cyan]#S#[fg=green]]'
+set-option -g status-left-length 20
+
+# window list
+setw -g automatic-rename on
+set-window-option -g window-status-format '#[dim]#I:#[default]#W#[fg=grey,dim]'
+set-window-option -g window-status-current-format '#[fg=green,bold]#I#[fg=green,bold]:#[fg=green,bold]#W#[fg=dim]*'
+
+# clock-mode
+set-window-option -g clock-mode-colour cyan
+set-window-option -g clock-mode-style 24
+
+# spot at right
+set -g status-right '#H #[fg=magenta]%H:%M #[fg=green][#[fg=cyan]%Y-%m-%d#[fg=green]]'
