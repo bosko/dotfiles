@@ -17,7 +17,7 @@ set-option -g status-left-length 20
 # window list
 setw -g automatic-rename on
 set-window-option -g window-status-format '#[dim]#I:#[default]#W#[fg=grey,dim]'
-set-window-option -g window-status-current-format '#[fg=green,bold]#I#[fg=green,bold]:#[fg=green,bold]#W#[fg=dim]*'
+set-window-option -g window-status-current-format '#[fg=green,bold][#I#[fg=green,bold]:#[fg=green,bold]#W]'
 
 # clock-mode
 set-window-option -g clock-mode-colour cyan
