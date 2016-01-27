@@ -9,6 +9,7 @@ fi
 # The rest of my fun git aliases
 alias gl='git pull --prune'
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset %C(bold blue)%an:%Creset %s -%Creset%C(auto)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
+alias glat="git for-each-ref --count=15 --sort=-committerdate refs/heads/ --format='%(refname:short)'"
 # Pretty!
 # via http://andyjeffries.co.uk/articles/25-tips-for-intermediate-git-users
 alias glol='git log --pretty=oneline --abbrev-commit --graph --decorate'
