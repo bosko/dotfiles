@@ -28,3 +28,6 @@ export SSL_CERT_FILE="/usr/local/etc/openssl/certs/cert.pem"
 
 autoload run-help
 HELPDIR=/usr/local/share/zsh/help
+
+export DIRSTACKSIZE=9
+setopt autopushd pushdminus pushdsilent pushdtohome
