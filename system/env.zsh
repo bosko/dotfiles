@@ -1,4 +1,4 @@
-export EDITOR='emacsclient -t'
+export EDITOR='emacsclient -n $* -a emacs'
 
 # Improve Emacs colors when running inside terminal
 export TERM=xterm-256color
