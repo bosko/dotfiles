@@ -35,11 +35,24 @@
   changed = green
   untracked = cyan
 [merge]
-  tool = bc
+  tool = bcomp
   conflictstyle = diff3
 [diff]
-  tool = bc
+  tool = bcomp
+[difftool "bcomp"]
+    trustExitCode = true
+    cmd = "/usr/local/bin/bcomp" "$LOCAL" "$REMOTE"
+[mergetool "bcomp"]
+    trustExitCode = true
+    cmd = "/usr/local/bin/bcomp" "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
 [magit]
   hideCampaign = true
 [rerere]
   enabled = true
+[core]
+  excludesfile = /Users/bosko/.gitignore_global
+[difftool "sourcetree"]
+  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+[mergetool "sourcetree"]
+  cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+  trustExitCode = true
