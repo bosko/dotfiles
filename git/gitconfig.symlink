@@ -1,5 +1,5 @@
 [user]
-  name = Bosko Ivanisevic
+  name = Boško Ivanišević
   email = bosko.ivanisevic@gmail.com
 [alias]
   aliases = !git config --get-regexp ^alias\\. | sed -e s/^alias.// -e s/\\ /\\ $(printf \"\\043\")--\\>\\ / | column -t -s $(printf \"\\043\") | sort -k 1
