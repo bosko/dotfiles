@@ -12,8 +12,8 @@ set -g default-terminal "screen-256color"
 set-option -g status-justify centre
 
 # spot at left
-set-option -g status-left '#[bg=black,fg=green][#[fg=cyan]#S#[fg=green]]'
-set-option -g status-left-length 20
+set-option -g status-left '#[bg=black,fg=white]#[fg=white]#H#[fg=green]'
+set-option -g status-left-length 60
 
 # window list
 setw -g automatic-rename on
@@ -25,4 +25,5 @@ set-window-option -g clock-mode-colour cyan
 set-window-option -g clock-mode-style 24
 
 # spot at right
-set -g status-right '#H #[fg=magenta]%H:%M #[fg=green][#[fg=cyan]%Y-%m-%d#[fg=green]]'
+set -g status-right-length 150
+set -g status-right '#[fg=white]%H:%M #[fg=green][#[fg=cyan]%Y-%m-%d#[fg=green]]'
