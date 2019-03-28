@@ -21,5 +21,6 @@ tmux new-window -n 'JavaScript' -t ${SESSION_NAME}
 tmux send-keys -t ${SESSION_NAME}:4 'cd ~/Code/javascript' C-m
 
 tmux select-window -t 0
+tmux select-pane -t 0
 
 tmux attach-session -t ${SESSION_NAME}
