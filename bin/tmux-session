@@ -9,18 +9,18 @@ tmux new-session -s ${SESSION_NAME} -n Seal -d
 tmux split-window
 
 tmux new-window -n 'SealMobile' -t ${SESSION_NAME}
-tmux send-keys -t ${SESSION_NAME}:1 'cd ~/Code/quark-solutions/seal/SealMobileEmployee' C-m
+tmux send-keys -t ${SESSION_NAME}:2 'cd ~/Code/quark-solutions/seal/SealMobileEmployee' C-m
 
 tmux new-window -n 'SSH' -t ${SESSION_NAME}
-tmux send-keys -t ${SESSION_NAME}:2 'cd ~' C-m
+tmux send-keys -t ${SESSION_NAME}:3 'cd ~' C-m
 
 tmux new-window -n 'Elixir' -t ${SESSION_NAME}
-tmux send-keys -t ${SESSION_NAME}:3 'cd ~/Code/elixir' C-m
+tmux send-keys -t ${SESSION_NAME}:4 'cd ~/Code/elixir' C-m
 
 tmux new-window -n 'JavaScript' -t ${SESSION_NAME}
-tmux send-keys -t ${SESSION_NAME}:4 'cd ~/Code/javascript' C-m
+tmux send-keys -t ${SESSION_NAME}:5 'cd ~/Code/javascript' C-m
 
-tmux select-window -t 0
-tmux select-pane -t 0
+tmux select-window -t 1
+tmux select-pane -t 1
 
 tmux attach-session -t ${SESSION_NAME}
