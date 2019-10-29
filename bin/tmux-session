@@ -8,8 +8,8 @@ tmux new-session -s ${SESSION_NAME} -n Seal -d
 
 tmux split-window
 
-tmux new-window -n 'SealMobile' -t ${SESSION_NAME}
-tmux send-keys -t ${SESSION_NAME}:1 'cd ~/Code/quark-solutions/seal/SealMobileEmployee' C-m
+tmux new-window -n 'seal-frontend' -t ${SESSION_NAME}
+tmux send-keys -t ${SESSION_NAME}:1 'cd ~/Code/quark-solutions/seal/seal-jobs-frontend' C-m
 
 tmux new-window -n 'SSH' -t ${SESSION_NAME}
 tmux send-keys -t ${SESSION_NAME}:2 'cd ~' C-m
