@@ -14,10 +14,6 @@ then
   source ~/.localrc
 fi
 
-# initialize autocomplete here, otherwise functions won't be loaded
-autoload -U compinit
-compinit
-
 # load every completion after autocomplete loads
 for config_file ($ZSH/**/completion.zsh) source $config_file
 
@@ -31,3 +27,11 @@ HELPDIR=/usr/local/share/zsh/help
 
 export DIRSTACKSIZE=9
 setopt autopushd pushdminus pushdsilent pushdtohome histignorespace
+
+# source asdf
+source /Users/bosko/.asdf/asdf.sh
+fpath=($ASDF_DIR/completionns $fpath)
+
+# initialize autocomplete here, otherwise functions won't be loaded
+autoload -U compinit
+compinit
