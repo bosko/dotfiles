@@ -51,6 +51,7 @@
   enabled = true
 [core]
   excludesfile = /Users/bosko/.gitignore_global
+	attributesfile = /Users/bosko/.gitattributes
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
