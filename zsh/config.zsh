@@ -6,6 +6,7 @@ fi
 
 export LSCOLORS="exfxcxdxbxegedabagacad"
 export CLICOLOR=true
+export KERL_BUILD_DOCS="yes"
 
 fpath=($ZSH/zsh/functions $fpath)
 
