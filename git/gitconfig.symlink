@@ -15,7 +15,7 @@
   rm-merged = "!git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 git branch -d"
   ls-merged = "!git branch --merged"
   gs = status -sb
-  glat = for-each-ref --count=15 --sort=-committerdate refs/heads/ --format='%(refname:short)'
+  glat = branch --sort=committerdate --format='%(committerdate:relative)%09%(refname:short)'
 [color]
   ui = auto
   branch = auto
