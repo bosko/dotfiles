@@ -1,0 +1,66 @@
+[user]
+	name = Boško Ivanišević
+	email = bosko.ivanisevic@gmail.com
+[alias]
+	aliases = !git config --get-regexp ^alias\\. | sed -e s/^alias.// -e s/\\ /\\ $(printf \"\\043\")--\\>\\ / | column -t -s $(printf \"\\043\") | sort -k 1
+	# New branch in a Worktree.
+	nw = "!f() { git worktree add $1 -b $1; }; f"
+	# Existing branch in a Worktree.
+	ew = "!f() { git worktree add $1 $1; }; f"
+	lol = log --pretty=oneline --abbrev-commit --graph --decorate
+	lola = log --pretty=oneline --abbrev-commit --graph --decorate --all
+	glog = log --graph --pretty=format:'%Cred%h%Creset %C(bold blue)%an:%Creset %s -%Creset%C(auto)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+	# http://stackoverflow.com/a/6127884/509706
+	# Remove local branches that have merged into master or develop
+	rm-merged = "!git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 git branch -d"
+	ls-merged = "!git branch --merged"
+	gs = status -sb
+	glat = branch --sort=committerdate --format='%(committerdate:relative)%09%(refname:short)'
+[color]
+	ui = auto
+	branch = auto
+	diff = auto
+	status = auto
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
+[merge]
+	tool = bcomp
+	conflictstyle = zdiff3
+[difftool "bcomp"]
+		trustExitCode = true
+		cmd = "/usr/local/bin/bcomp" "$LOCAL" "$REMOTE"
+[mergetool "bcomp"]
+		trustExitCode = true
+		cmd = "/usr/local/bin/bcomp" "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
+[magit]
+	hideCampaign = true
+[rerere]
+	enabled = true
+[core]
+	attributesfile = /Users/bosko/.gitattributes
+[difftool "difft"]
+	cmd = difft \"$LOCAL\" \"$REMOTE\"
+# Use a pager for large output, just like other git commands.
+[pager]
+	difftool = true
+[bash]
+	showDirtyState = true
+	showInformativeStatus = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[diff]
+	algorithm = histogram

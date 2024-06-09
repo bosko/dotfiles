@@ -1,0 +1,19 @@
+keybinds {
+    normal {
+        // uncomment this and adjust key if using copy_on_select=false
+        unbind "Ctrl g"
+        bind "Alt c" { Copy; }
+        bind "Alt 1" { SwitchToMode "Locked"; }
+    }
+    locked {
+        unbind "Ctrl g"
+        bind "Alt 1" { SwitchToMode "Normal"; }
+    }
+    shared_except "locked" {
+        bind "Alt n" { NewPane "Down"; }
+    }
+}
+on_force_close "quit"
+mouse_mode false
+copy_on_select false
+scrollback_editor "/Applications/Emacs.app/Contents/MacOS/Emacs -nw --init-directory ~/.se.d"
