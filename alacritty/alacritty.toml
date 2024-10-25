@@ -21,7 +21,7 @@ option_as_alt = "Both"
 dimensions = { columns = 200, lines = 60 }
 
 [scrolling]
-history = 10000
+history = 50000
 multiplier = 3
 
 [cursor]
