@@ -16,4 +16,4 @@ keybinds {
 on_force_close "quit"
 mouse_mode false
 copy_on_select false
-scrollback_editor "/Applications/Emacs.app/Contents/MacOS/Emacs -nw --init-directory ~/.se.d"
+scrollback_editor "/Applications/Emacs.app/Contents/MacOS/Emacs -nw --init-directory ~/se.d"
