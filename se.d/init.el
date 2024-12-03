@@ -3,7 +3,7 @@
 ;;; Code:
 
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
-(load custom-file)
+(load custom-file :no-error-if-file-is-missing)
 
 (setq-default fill-column 80)
 (column-number-mode)
