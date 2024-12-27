@@ -2,6 +2,7 @@ keybinds {
     normal {
         // uncomment this and adjust key if using copy_on_select=false
         unbind "Ctrl g"
+        unbind "Alt f"
         bind "Alt c" { Copy; }
         bind "Alt 1" { SwitchToMode "Locked"; }
     }
@@ -14,6 +15,6 @@ keybinds {
     }
 }
 on_force_close "quit"
-mouse_mode false
-copy_on_select false
+mouse_mode true
+copy_on_select true
 scrollback_editor "/Applications/Emacs.app/Contents/MacOS/Emacs -nw --init-directory ~/se.d"
