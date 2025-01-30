@@ -4,4 +4,4 @@ end
 
 fundle plugin '2m/fish-history-merge'
 fundle init
-source ~/.asdf/asdf.fish
+~/.local/bin/mise activate fish | source
