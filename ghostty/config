@@ -1,0 +1,41 @@
+macos-option-as-alt = true
+term = xterm-256color
+mouse-hide-while-typing = true
+shell-integration = fish
+
+# Light candidates
+# theme = GruvboxLight
+# theme = iceberg-light
+# theme = iTerm2 Solarized Light
+# theme = neobones_light
+# theme = Novel
+# theme = OneHalfLight
+# theme = rose-pine-dawn
+# theme = vimbones
+# theme = xcodelighthc
+
+# Dark candidates
+# theme = midnight-in-mojave
+theme = Tomorrow Night Blue
+# theme = Tomorrow Night Bright
+# theme = tokyonight
+# theme = xcodedarkhc
+# theme = IR_Black
+# theme = Jackie Brown
+# theme = RetroLegends
+# theme = Neon
+# theme = Spacedust
+# theme = SpaceGray Eighties
+# theme = synthwave
+# theme = Teerb
+# theme = Twilight
+
+split-divider-color = #4765B1
+window-new-tab-position = end
+
+keybind = alt+j=goto_split:down
+keybind = alt+k=goto_split:up
+keybind = alt+h=goto_split:left
+keybind = alt+l=goto_split:right
+
+keybind = global:cmd+`=toggle_quick_terminal
