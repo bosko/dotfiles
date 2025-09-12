@@ -4,7 +4,7 @@ SETUVAR --export CLICOLOR:1
 SETUVAR --export EDITOR:e
 SETUVAR --export ERL_AFLAGS:\x2dkernel\x20shell_history\x20enabled
 SETUVAR --export GIT_EDITOR:/Applications/Emacs\x2eapp/Contents/MacOS/bin/emacsclient\x20\x2dn\x20\x24\x2a\x20\x2da\x20emacs
-SETUVAR __fish_initialized:3400
+SETUVAR __fish_initialized:3800
 SETUVAR auto:false
 SETUVAR fish_color_autosuggestion:b2b2b2
 SETUVAR fish_color_cancel:\x2d\x2dreverse
@@ -44,4 +44,4 @@ SETUVAR fish_pager_color_selected_background:\x2d\x2dreverse
 SETUVAR fish_pager_color_selected_completion:\x1d
 SETUVAR fish_pager_color_selected_description:\x1d
 SETUVAR fish_pager_color_selected_prefix:\x1d
-SETUVAR fish_user_paths:/opt/homebrew/sbin\x1e/Users/bosko/programs/aws\x2dcli\x1e/Users/bosko/programs\x1e/opt/homebrew/bin
+SETUVAR fish_user_paths:/opt/homebrew/sbin\x1e/Users/bosko/programs\x1e/opt/homebrew/bin

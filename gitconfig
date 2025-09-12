@@ -64,3 +64,5 @@
 	required = true
 [diff]
 	algorithm = histogram
+[branch]
+	sort = -committerdate
