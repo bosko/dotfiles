@@ -8,3 +8,10 @@ fundle init
 
 # Added by LM Studio CLI (lms)
 set -gx PATH $PATH /Users/bosko/.lmstudio/bin
+
+
+# Mole shell completion
+set -l output (mole completion fish 2>/dev/null); and echo "$output" | source
+
+# opencode
+fish_add_path /Users/bosko/.opencode/bin
