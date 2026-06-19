@@ -4,19 +4,17 @@ mouse-hide-while-typing = true
 shell-integration = fish
 
 # Light candidates
-# theme = GruvboxLight
-# theme = iceberg-light
+theme = primary
+# theme = One Half Light
 # theme = iTerm2 Solarized Light
-# theme = neobones_light
-# theme = Novel
-# theme = OneHalfLight
-# theme = rose-pine-dawn
-# theme = vimbones
-# theme = xcodelighthc
+# theme = Neobones Light
+# theme = Gruvbox Material Light
+# theme = Coffee Theme
 
 # Dark candidates
+# theme = Cobalt Neon
 # theme = midnight-in-mojave
-theme = Tomorrow Night Blue
+# theme = Tomorrow Night Blue
 # theme = Tomorrow Night Bright
 # theme = tokyonight
 # theme = xcodedarkhc
@@ -30,7 +28,9 @@ theme = Tomorrow Night Blue
 # theme = Teerb
 # theme = Twilight
 
-split-divider-color = #4765B1
+shell-integration-features = ssh-env
+shell-integration-features = ssh-terminfo
+
 window-new-tab-position = end
 
 keybind = alt+j=goto_split:down
