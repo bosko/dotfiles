@@ -3,30 +3,7 @@ term = xterm-256color
 mouse-hide-while-typing = true
 shell-integration = fish
 
-# Light candidates
-theme = primary
-# theme = One Half Light
-# theme = iTerm2 Solarized Light
-# theme = Neobones Light
-# theme = Gruvbox Material Light
-# theme = Coffee Theme
-
-# Dark candidates
-# theme = Cobalt Neon
-# theme = midnight-in-mojave
-# theme = Tomorrow Night Blue
-# theme = Tomorrow Night Bright
-# theme = tokyonight
-# theme = xcodedarkhc
-# theme = IR_Black
-# theme = Jackie Brown
-# theme = RetroLegends
-# theme = Neon
-# theme = Spacedust
-# theme = SpaceGray Eighties
-# theme = synthwave
-# theme = Teerb
-# theme = Twilight
+theme = light:Gruvbox Light,dark:Gruvbox Material
 
 shell-integration-features = ssh-env
 shell-integration-features = ssh-terminfo
