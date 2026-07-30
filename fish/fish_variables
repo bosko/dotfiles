@@ -5,5 +5,6 @@ SETUVAR --export EDITOR:e
 SETUVAR --export ERL_AFLAGS:\x2dkernel\x20shell_history\x20enabled
 SETUVAR --export GIT_EDITOR:/Applications/Emacs\x2eapp/Contents/MacOS/bin/emacsclient\x20\x2dn\x20\x24\x2a\x20\x2da\x20emacs
 SETUVAR __fish_initialized:4300
+SETUVAR __fish_webconfig_theme_notification:set\x2dtheme\x2dv1\x2d\x2322
 SETUVAR auto:false
 SETUVAR fish_user_paths:/Users/bosko/\x2eopencode/bin\x1e/opt/homebrew/sbin\x1e/Users/bosko/programs\x1e/opt/homebrew/bin\x1e/Applications/Ghostty\x2eapp/Contents/MacOS
