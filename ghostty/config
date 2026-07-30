@@ -1,9 +1,8 @@
 macos-option-as-alt = true
-term = xterm-256color
 mouse-hide-while-typing = true
 shell-integration = fish
 
-theme = light:Gruvbox Light,dark:Gruvbox Material
+theme = light:Gruvbox Light Hard,dark:Gruvbox Material
 
 shell-integration-features = ssh-env
 shell-integration-features = ssh-terminfo
