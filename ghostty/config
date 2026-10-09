@@ -2,7 +2,7 @@ macos-option-as-alt = true
 mouse-hide-while-typing = true
 shell-integration = fish
 
-theme = light:Gruvbox Light Hard,dark:Gruvbox Material
+theme = light:Modus Operandi Tinted,dark:Gruvbox Material
 
 shell-integration-features = ssh-env
 shell-integration-features = ssh-terminfo
@@ -15,3 +15,5 @@ keybind = alt+h=goto_split:left
 keybind = alt+l=goto_split:right
 
 keybind = global:cmd+~=toggle_quick_terminal
+
+split-divider-color = grey
